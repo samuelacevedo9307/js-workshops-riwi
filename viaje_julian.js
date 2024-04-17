@@ -5,7 +5,9 @@ const travel= {
 };
 
 let days = prompt("porfavor ingresa el numero de dias ")
+travel.dias = days;
 let cost = prompt("porfavor ingresa el costo a pagar")
+travel.costo =cost;
 let selecttravel = prompt("escoje el lugar ,haiti,valledupar,choco,buenojaires, cucuta" )
 
 const valueTravel = () => {
