@@ -29,6 +29,7 @@ while(true){
         let nameSouvenir = prompt("ingrese nombre souvenir");
         let nameCost = prompt("ingrese costo del souvernir");
         let nameDisp = prompt (`ingrese si esta "disponible" o "no disponible"`)
+        
         if (nameDisp === "disponible"){
             nameDisp = true;
         }else {

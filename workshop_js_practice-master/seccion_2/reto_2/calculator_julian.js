@@ -19,26 +19,28 @@ let costos = {
     ahorro: 50,
 };
 
-let menu_cost_pay = confirm("¿Desea ingresar los gastos de hoy...?")
-while (menu_cost_pay === true) {
+let menu_cost_pay = confirm("¿Desea ingresar los gastos de hoy...?");
+
+while (countAhorrro < presupuesto) {
+    let cost_comida = prompt("ingrese gastos de comidas hoy ");
+    let cost_libros = prompt("ingrese gastos de libros hoy ");
     countAhorrro = presupuesto - 50;
     costos.ahorro = countAhorrro;
-    while (countAhorrro > presupuesto) {
-        let cost_comida = prompt("ingrese gastos de comidas hoy ");
-        let cost_libros = prompt("ingrese gastos de comidas hoy ");
-        if (typeof cost_comida === Number && cost_comida > presupuesto) {
+    while ((cost_comida + cost_libros) < presupuesto) {
+
+        if (typeof cost_comida === Number && cost_comida < presupuesto) {
             cost_comida = presupuesto - cost_comida;
             costos.comida = cost_comida;
 
-        } else if (typeof cost_libros === Number && cost_libros > presupuestoesto) {
+        } else if (typeof cost_libros === Number && cost_libros < presupuestoesto) {
             cost_libros = presupuesto - cost_libros;
             costos.compras = cost_libros;
             list_cost_days.push(cost_libros);
         } else {
             break
         }
-
     }
-
 }
+
+
 
