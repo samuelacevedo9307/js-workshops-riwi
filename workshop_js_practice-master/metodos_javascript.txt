@@ -1,0 +1,8 @@
+//array.map(function(argumentoo elelmento)){return}: devuelve la misma cantidad de elementos pero con modiifcaciones
+//string.split ("") : separa un elemento , sea string u objeto y lo vuelve un array
+//string.trim(): elimina espacios al principio y al dfinal de la cadena
+//array.push(): sagrega elementros al final del arreglo
+//array.pop(): elimina elementros al final del arreglo
+//string.slice() : refgesa una porcion de una cadena y devuelve una cadena nueva 
+//array.foreach (variable =>  console.log (muestra valor de variable)); recorre arreglo y le adigna un valor en la variable
+//array.filter();
