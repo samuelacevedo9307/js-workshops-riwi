@@ -55,9 +55,41 @@
             })
             .catch((error) => {
                 console.error("Error al manejar la promesa:", error);
+
             });
     </script> -->
-    <script src="/workshop-6.js"></script>
+    <h2> EJERCICIO 2 : CUAL ES EL RESULTADO DE ESTE SCRIPT?</h2>
+<pre>
+
+    // vars call
+
+    console.log("Valor de a:", a);
+    console.log("Valor de b:", b);
+    console.log("Valor de c:", c);
+    
+    // functions call
+
+    console.log("Resultado de funcionDeclarada:", funcionDeclarada());
+    console.log("Resultado de funcionExpresada:", funcionExpresada());
+    
+    // vars declaration
+    
+    var a = 1;
+    let b = 2;
+    const c = 3;
+    
+    // functions declarations
+
+    function funcionDeclarada() {
+    return "Función declarada ha sido llamada.";
+    }
+    
+    const funcionExpresada = function () {
+    return "Función expresada ha sido llamada.";
+    };
+</pre>
+
+    <script src="/js-workshops-riwi/workshop_js_practice-master/15-workshop-6/workshop-6.js"></script>
 </body>
 
 </html>
