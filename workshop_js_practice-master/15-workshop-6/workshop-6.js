@@ -132,37 +132,40 @@
 
 
 
-console.log("Intentando llamar a 'funcionDeclarada' antes de su declaración:");
+// console.log("Intentando llamar a 'funcionDeclarada' antes de su declaración:");
 
-try {
-  console.log(funcionDeclarada());
-} catch (error) {
-  console.log("Error:", error.message);
-}
+// try {
+//   console.log(funcionDeclarada());
+// } catch (error) {
+//   console.log("Error:", error.message);
+// }
 
-console.log("Intentando llamar a 'funcionExpresada' antes de su declaración:");
+// console.log("Intentando llamar a 'funcionExpresada' antes de su declaración:");
 
-try {
-  console.log(funcionExpresada());
-} catch (error) {
-  console.log("Error:", error.message);
-}
+// try {
+//   console.log(funcionExpresada());
+// } catch (error) {
+//   console.log("Error:", error.message);
+// }
 
-// Declaración de una función declarada
-function funcionDeclarada() {
-  return "Función declarada ha sido llamada.";
-}
+// // Declaración de una función declarada
+// function funcionDeclarada() {
+//   return "Función declarada ha sido llamada.";
+// }
 
-// Declaración de una función expresada
-const funcionExpresada = function () {
-  return "Función expresada ha sido llamada.";
-};
+// // Declaración de una función expresada
+// const funcionExpresada = function () {
+//   return "Función expresada ha sido llamada.";
+// };
 
-console.log("Llamando a 'funcionDeclarada' después de su declaración:");
-console.log(funcionDeclarada());
-console.log("Llamando a 'funcionExpresada' después de su declaración:");
-console.log(funcionExpresada());
-alert(``)
+// console.log("Llamando a 'funcionDeclarada' después de su declaración:");
+// console.log(funcionDeclarada());
+// console.log("Llamando a 'funcionExpresada' después de su declaración:");
+// console.log(funcionExpresada());
+
+// alert(``)
+
+//---------
 //¿Qué sucedió cuando intentaste llamar a las funciones antes de su declaración?
     //Llamando a 'funcionDeclarada' después de su declaración:
     // Función declarada ha sido llamada.
@@ -176,6 +179,23 @@ alert(``)
      //las funciones expresadas se declaran en una variable primero antes de la funcion.
 
 //------------------------------ Ejercicio 5: Promesas y Callbacks en Acción
+// const manejarAsincronia = (this_callback, promise) => {
+//   const promesaConTiempo = new Promise((resolve, reject) => {
+//     setTimeout(() => {resolve('Promesa resuelta');}, 2000);
+//   });
+//   promesaConTiempo.then((res) => {this_callback(res);});
+// };
 
+//------------------------------ Ejercicio 5: Promesas y Callbacks en Acción
 
+console.log("inmediatamente");
 
+setTimeout((
+) => {
+  console.log("con time out 0 segundos");
+},0);
+
+setTimeout((
+) => {
+  console.log("con time out 1 segundos");
+},0);
