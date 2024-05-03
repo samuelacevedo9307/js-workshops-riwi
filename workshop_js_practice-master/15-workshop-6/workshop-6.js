@@ -129,7 +129,11 @@
 // console.log(sumarCinco(3));
 // // 8
 ////------------------------------ Ejercicio 4: Funciones Declaradas vs Expresadas
+
+
+
 console.log("Intentando llamar a 'funcionDeclarada' antes de su declaración:");
+
 try {
   console.log(funcionDeclarada());
 } catch (error) {
@@ -137,6 +141,7 @@ try {
 }
 
 console.log("Intentando llamar a 'funcionExpresada' antes de su declaración:");
+
 try {
   console.log(funcionExpresada());
 } catch (error) {
@@ -155,6 +160,22 @@ const funcionExpresada = function () {
 
 console.log("Llamando a 'funcionDeclarada' después de su declaración:");
 console.log(funcionDeclarada());
-
 console.log("Llamando a 'funcionExpresada' después de su declaración:");
 console.log(funcionExpresada());
+alert(``)
+//¿Qué sucedió cuando intentaste llamar a las funciones antes de su declaración?
+    //Llamando a 'funcionDeclarada' después de su declaración:
+    // Función declarada ha sido llamada.
+    // Llamando a 'funcionExpresada' después de su declaración:
+//¿Cómo difieren los resultados entre la función declarada y la función expresada?
+
+    //las funciones expresadas se declaran en una variable primero antes de la funcion.
+
+//¿Qué indica esto sobre cómo el JavaScript maneja estas dos diferentes declaraciones de funciones?
+
+     //las funciones expresadas se declaran en una variable primero antes de la funcion.
+
+//------------------------------ Ejercicio 5: Promesas y Callbacks en Acción
+
+
+
