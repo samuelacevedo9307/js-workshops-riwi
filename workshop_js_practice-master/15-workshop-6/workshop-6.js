@@ -178,7 +178,7 @@
 
      //las funciones expresadas se declaran en una variable primero antes de la funcion.
 
-//------------------------------ Ejercicio 5: Promesas y Callbacks en Acción
+//------------------------------ Ejercicio 6:Event Loop y Web APIs
 // const manejarAsincronia = (this_callback, promise) => {
 //   const promesaConTiempo = new Promise((resolve, reject) => {
 //     setTimeout(() => {resolve('Promesa resuelta');}, 2000);
@@ -188,14 +188,134 @@
 
 //------------------------------ Ejercicio 5: Promesas y Callbacks en Acción
 
-console.log("inmediatamente");
+// console.log("inmediatamente");
 
-setTimeout((
-) => {
-  console.log("con time out 0 segundos");
-},0);
+// setTimeout((
+// ) => {
+//   console.log("con time out 0 segundos");
+// },0);
 
-setTimeout((
-) => {
-  console.log("con time out 1 segundos");
-},0);
+// setTimeout((
+// ) => {
+//   console.log("con time out 1 segundos");
+// },0);
+
+//------------------------------ Ejercicio 7:
+// console.log("Inicio del script");
+
+// setTimeout(() => {
+//   console.log("Primer setTimeout");
+// }, 0);
+
+// setTimeout(() => {
+//   console.log("Segundo setTimeout");
+// }, 0);
+
+// Promise.resolve("Promesa resuelta").then(console.log);
+
+// console.log("Fin del script");
+
+
+// const order_time = prompt(`selecciona en que orden en que se colocarian los log en este codigo 
+// \n1-"inicio del scrit","Fin del script","Primer setTimeout","Segundo setTimeout"
+// \n2-"Inicio del script","Primer setTimeout","Segundo setTimeout","Promesa resuelta","Fin del script"`)
+
+// switch (order_time) {
+//   case "1":
+//     // Si el usuario acertó el orden, muestra un mensaje de felicitaciones.
+//     alert(`Es correcto Felicitaciones`)
+//     break;
+//     case "2":
+//     // Si el usuario falló en un solo paso, muestra un mensaje de error y explica el paso incorrecto.
+//     // Si el usuario falló en dos o más pasos, muestra un mensaje de error y explica los pasos incorrectos.
+//     alert(`es incorrecto,primero se gestionan los console.log del scoope global , luego pasamos a los internos `)
+//     break;
+//   case "1":
+//     break;
+//   default:
+//     break;
+// }
+//------------------------------ SECCION 3
+
+let count_closures = 0;
+let array_clousures = [];
+
+function new_closures() {
+  return function sum_closures() {
+    count_closures = count_closures + 1;
+    array_clousures.push(sum_closures);
+  }
+}
+new_closures();
+
+while (true) {
+  const option = parseInt(prompt(`Ingrese una opción:\n1- desea incrementar el contador,\n2- ver el contador,\n3- salir`));
+  switch (option) {
+    case 1:
+      new_closures();
+      break;
+    case 2:
+      console.log(array_clousures);
+      break;
+    case 3:
+      console.log("...");
+    default:
+      console.log("Intentalo nuevamente");
+  }
+}
+
+
+
+
+
+
+//-------------------------------------SECCION 5
+
+// Ruta del archivo data.json
+const url = "data.json"; // Cambiar por la ruta correcta
+
+// Función para cargar y mostrar el contenido de data.json
+function cargarYMostrarData() {
+  // Retorna una nueva promesa que se resuelve después del setTimeout
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      // Realiza la solicitud fetch dentro del setTimeout
+      fetch(url)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Error al cargar los datos.");
+          }
+          return response.json();
+        })
+        .then((data) => {
+          console.log("Habitaciones:", data.rooms);
+          console.log("Tipos de Habitaciones:", data.roomTypes);
+          resolve(data); // Resuelve la promesa con los datos cargados
+        })
+        .catch((error) => {
+          console.error(error);
+          reject(error); // Rechaza la promesa si hay un error
+        });
+    }, 3000);
+  });
+}
+
+// Llamar a la función para cargar y mostrar el contenido de data.json
+cargarYMostrarData()
+  .then(({ rooms, roomTypes }) => {
+    // Mostrar el contenido de las habitaciones después de cargar los datos
+    const userInput = prompt(
+      "Ingrese el numero de habitacion a reservar: " +
+        rooms
+          .map((room) => {
+            return `\nRoom Number: ${room.number} (${
+              roomTypes.find((type) => type.id === room.type).name
+            })`;
+          })
+          .join(", ")
+    );
+    // ... Continuar con la lógica de la app
+  })
+  .catch((error) => {
+    console.error("Error al manejar la promesa:", error);
+  });
