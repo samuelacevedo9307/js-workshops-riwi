@@ -79,133 +79,133 @@
 // }
 
 //-------------------------RETO4---------------------------------------
-let events_list = [];
+// let events_list = [];
 
-function create_event() {
+// function create_event() {
 
-  const name_event = prompt("Ingrese el nombre del evento:");
-  const date_event = prompt("Ingrese la fecha del evento (formato YYYY-MM-DD):");
-  const description = prompt("DEseas agregar algo al evento ?:");
-  const id_event = events_list.length + 1;
+//   const name_event = prompt("Ingrese el nombre del evento:");
+//   const date_event = prompt("Ingrese la fecha del evento (formato YYYY-MM-DD):");
+//   const description = prompt("DEseas agregar algo al evento ?:");
+//   const id_event = events_list.length + 1;
 
-  const new_event = {
+//   const new_event = {
 
-    id_event,
-    name_event: name_event.trim().toLowerCase(),
-    date_event,
-    description: description.trim()
+//     id_event,
+//     name_event: name_event.trim().toLowerCase(),
+//     date_event,
+//     description: description.trim()
 
-  };
-  events_list.push(new_event);
+//   };
+//   events_list.push(new_event);
 
-  console.log( `el evento fue creado: ${new_event.name_event}`);
+//   console.log( `el evento fue creado: ${new_event.name_event}`);
 
-}
+// }
 
-function watch_events() {
+// function watch_events() {
 
-  console.log( "Estos son tus eventos:");
-  events_list.forEach(event => {
+//   console.log( "Estos son tus eventos:");
+//   events_list.forEach(event => {
     
-    console.log(`  ${event.id}. ${event.name_event} - ${event.date} - ${event.description}`);
+//     console.log(`  ${event.id}. ${event.name_event} - ${event.date} - ${event.description}`);
 
-  });
+//   });
 
-  const search_event = prompt("Ingrese el nombre del evento a buscar (opcional):");
+//   const search_event = prompt("Ingrese el nombre del evento a buscar (opcional):");
 
-  if (search_event) {
-    const searchResults = events_list.filter(event => {
+//   if (search_event) {
+//     const searchResults = events_list.filter(event => {
 
-      return event.name_event.includes(search_event.trim().toLowerCase()); 
+//       return event.name_event.includes(search_event.trim().toLowerCase()); 
 
-    });
+//     });
 
-    if (searchResults.length > 0) {
-      console.log(`Resultados de búsqueda para "${search_event}":`);
+//     if (searchResults.length > 0) {
+//       console.log(`Resultados de búsqueda para "${search_event}":`);
 
-      searchResults.forEach(event => {
+//       searchResults.forEach(event => {
 
-        console.log(`  ${event.id}. ${event.name_event} - ${event.date} - ${event.description}`);
+//         console.log(`  ${event.id}. ${event.name_event} - ${event.date} - ${event.description}`);
 
-      });
-    } else {
-      console.log(`No se encontraron eventos que coincidan con la búsqueda`);
-    }
-  }
-}
+//       });
+//     } else {
+//       console.log(`No se encontraron eventos que coincidan con la búsqueda`);
+//     }
+//   }
+// }
 
-function actually_event() {
-  const event_id_actual = parseInt(prompt("Ingrese el identificador del evento a actualizar:"));
-  const eventToUpdate = events_list.find(event => event.id === event_id_actual);
+// function actually_event() {
+//   const event_id_actual = parseInt(prompt("Ingrese el identificador del evento a actualizar:"));
+//   const eventToUpdate = events_list.find(event => event.id === event_id_actual);
 
-  if (eventToUpdate) {
+//   if (eventToUpdate) {
 
-    const newName = prompt(`Ingrese el nuevo nombre del evento (actual: ${eventToUpdate.name}):`);
-    const newDate = prompt(`Ingrese la nueva fecha del evento (actual: ${eventToUpdate.date}):`);
-    const newDescription = prompt(`Ingrese la nueva descripción del evento (actual: ${eventToUpdate.description}):`);
+//     const newName = prompt(`Ingrese el nuevo nombre del evento (actual: ${eventToUpdate.name}):`);
+//     const newDate = prompt(`Ingrese la nueva fecha del evento (actual: ${eventToUpdate.date}):`);
+//     const newDescription = prompt(`Ingrese la nueva descripción del evento (actual: ${eventToUpdate.description}):`);
 
-    eventToUpdate.name = newName.trim().toLowerCase();
-    eventToUpdate.date = newDate;
-    eventToUpdate.description = newDescription.trim();
+//     eventToUpdate.name = newName.trim().toLowerCase();
+//     eventToUpdate.date = newDate;
+//     eventToUpdate.description = newDescription.trim();
 
-    console.log(`Evento actualizado con éxito: ${eventToUpdate.name}`);
+//     console.log(`Evento actualizado con éxito: ${eventToUpdate.name}`);
 
-  } else {
+//   } else {
 
-    console.log(`No se encontró el evento con el identificador ${event_id_actual}`);
+//     console.log(`No se encontró el evento con el identificador ${event_id_actual}`);
 
-  }
-}
+//   }
+// }
 
-function erase_event() {
+// function erase_event() {
 
-  const event_id_actual = parseInt(prompt("Ingrese el identificador del evento a eliminar:"));
+//   const event_id_actual = parseInt(prompt("Ingrese el identificador del evento a eliminar:"));
 
-  const event_index = events_list.findIndex(event => event.id === event_id_actual); //me trae el primer indice del elemento  y lo cguarda en event
+//   const event_index = events_list.findIndex(event => event.id === event_id_actual); //me trae el primer indice del elemento  y lo cguarda en event
 
-  if (event_index !== -1) {  //
+//   if (event_index !== -1) {  //
     
-    events_list.splice(event_index, 1);
+//     events_list.splice(event_index, 1);
 
-    console.log(`Evento eliminado con éxito`);
+//     console.log(`Evento eliminado con éxito`);
 
-  } else {
+//   } else {
 
-    console.log(`No se encontró el evento con el identificador ${event_id_actual}`);
+//     console.log(`No se encontró el evento con el identificador ${event_id_actual}`);
 
-  }
-}
+//   }
+// }
 
-while (true) {
+// while (true) {
 
-  console.log("Eventos");
-  console.log("1- Crear un nuevo evento");
-  console.log("2- buscar eventos");
-  console.log("3- Actualizar un evento(reemplazar)");
-  console.log("4- Eliminar un evento");
-  console.log("5- Salir");
+//   console.log("Eventos");
+//   console.log("1- Crear un nuevo evento");
+//   console.log("2- buscar eventos");
+//   console.log("3- Actualizar un evento(reemplazar)");
+//   console.log("4- Eliminar un evento");
+//   console.log("5- Salir");
 
-  const option = parseInt(prompt("Ingrese una opción:"));//intento switch en while 
-  switch (option) {
+//   const option = parseInt(prompt("Ingrese una opción:"));//intento switch en while 
+//   switch (option) {
 
-    case 1:
-      create_event();
-      break;
-    case 2:
-      watch_events();
-      break;
-    case 3:
-      actually_event();
-      break;
-    case 4:
-      erase_event();
-      break;
-    case 5:
-      console.log("...");
-      return;
-    default:
+//     case 1:
+//       create_event();
+//       break;
+//     case 2:
+//       watch_events();
+//       break;
+//     case 3:
+//       actually_event();
+//       break;
+//     case 4:
+//       erase_event();
+//       break;
+//     case 5:
+//       console.log("...");
+//       return;
+//     default:
 
-      console.log("Intentalo nuevamente");
+//       console.log("Intentalo nuevamente");
 
-  }
-}
+//   }
+// }
